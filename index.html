@@ -10,10 +10,23 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕹️</text></svg>" />
+    <script>
+      // Single Page App redirect for GitHub Pages branch deployment:
+      // If deployed directly from root on GitHub Pages without an Actions workflow,
+      // redirect automatically to /docs/ where the compiled distribution resides.
+      (function () {
+        var isGitHubPages = window.location.hostname.endsWith('github.io');
+        var isRootPath = !window.location.pathname.includes('/docs/') && !window.location.pathname.includes('/dist/');
+        if (isGitHubPages && isRootPath) {
+          var target = window.location.pathname.replace(/\/?(index\.html)?$/, '') + '/docs/';
+          window.location.replace(target + window.location.search + window.location.hash);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="./src/main.jsx"></script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
 
