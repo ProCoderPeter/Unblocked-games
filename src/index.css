@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #050507;
+    color: #e2e8f0;
+  }
+}
+
+.immersive-bg {
+  background-color: #050507;
+  background-image: radial-gradient(circle at 50% -20%, #1a1a2e 0%, #050507 80%);
+}
